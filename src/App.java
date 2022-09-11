@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -28,11 +29,15 @@ public class App {
             if ("(".equals(item)) {
                 bracketIdx.push(i);
             } else if (")".equals(item)) {
-                int openIdx = bracketIdx.pop();
-                List<String> toEval = toSolve.subList(openIdx, toSolve.size());
-                double solved = calculate(String.join(" ", toEval));
-                toEval.clear();
-                toSolve.add(String.valueOf(solved));
+                try {
+                    int openIdx = bracketIdx.pop();
+                    List<String> toEval = toSolve.subList(openIdx, toSolve.size());
+                    double solved = calculate(String.join(" ", toEval));
+                    toEval.clear();
+                    toSolve.add(String.valueOf(solved));
+                } catch (EmptyStackException e) {
+                    throw new IllegalArgumentException("Invalid expression due to missing opening bracket");
+                }
             }
         }
 
