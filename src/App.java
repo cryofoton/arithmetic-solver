@@ -8,6 +8,7 @@ import java.util.Stack;
 public class App {
 
     public static double calculate(String sum) {
+        List<String> supportOper = List.of("+", "-", "*", "/");
 
         // trim space and bracket at prefix and suffix
         String expr = sum.trim();
@@ -56,7 +57,11 @@ public class App {
                     }
                 }
             } catch (NumberFormatException e) {
-                operator = num;
+                if (supportOper.stream().anyMatch(s -> s.equals(num))) {
+                    operator = num;
+                } else {
+                    throw new IllegalArgumentException("Invalid expression '" + num + "'");
+                }
             }
         }
         inProcess.add(left.toPlainString());
