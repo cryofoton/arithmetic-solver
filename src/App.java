@@ -16,7 +16,7 @@ public class App {
         }
 
         // convert the expression to be solved into array
-        String[] exprArr = expr.split(" ");
+        String[] exprArr = expr.split("\\s+");
         List<String> toSolve = new ArrayList<>();
 
         // process the bracket
