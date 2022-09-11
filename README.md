@@ -1,18 +1,29 @@
-## Getting Started
+# Arithmetic Solver
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## About
 
-## Folder Structure
+This is an app built as a Remote Coding Test for Ideagen.
 
-The workspace contains two folders by default, where:
+## Requirement
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Java 8 and above JDK.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Setup
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+From your IDE of your choice, you can clone this repository and run it inside your IDE. The output can be viewed in the console.
 
-## Dependency Management
+Alternatively, you can use terminal to compile and run the application from within the project directory.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+# Java 8
+$ mkdir bin
+$ javac -d ./bin src/App.java
+$ java -cp ./bin App
+
+# Java 11 and above
+$ java src/App.java
+```
+
+## Summary
+
+There is a summary written in docx file to explain more about the contents of this program. It can be found [here in the docs directory](https://github.com/cryofoton/arithmetic-solver/blob/main/docs/Summary.docx).
